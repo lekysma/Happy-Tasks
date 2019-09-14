@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		FB5EDED42327E9E0004158C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EDED32327E9E0004158C6 /* AppDelegate.swift */; };
-		FB5EDED62327E9E0004158C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EDED52327E9E0004158C6 /* ViewController.swift */; };
+		FB5EDED62327E9E0004158C6 /* TachesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EDED52327E9E0004158C6 /* TachesViewController.swift */; };
 		FB5EDED92327E9E0004158C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5EDED72327E9E0004158C6 /* Main.storyboard */; };
 		FB5EDEDC2327E9E0004158C6 /* Happy_Tasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB5EDEDA2327E9E0004158C6 /* Happy_Tasks.xcdatamodeld */; };
 		FB5EDEDE2327E9E2004158C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5EDEDD2327E9E2004158C6 /* Assets.xcassets */; };
 		FB5EDEE12327E9E2004158C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5EDEDF2327E9E2004158C6 /* LaunchScreen.storyboard */; };
+		FB5EDEE92327EE67004158C6 /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EDEE82327EE67004158C6 /* CategoriesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FB5EDED02327E9E0004158C6 /* Happy Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5EDED32327E9E0004158C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FB5EDED52327E9E0004158C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB5EDED52327E9E0004158C6 /* TachesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TachesViewController.swift; sourceTree = "<group>"; };
 		FB5EDED82327E9E0004158C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB5EDEDB2327E9E0004158C6 /* Happy_Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Happy_Tasks.xcdatamodel; sourceTree = "<group>"; };
 		FB5EDEDD2327E9E2004158C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB5EDEE02327E9E2004158C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB5EDEE22327E9E2004158C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB5EDEE82327EE67004158C6 /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +59,39 @@
 			isa = PBXGroup;
 			children = (
 				FB5EDED32327E9E0004158C6 /* AppDelegate.swift */,
-				FB5EDED52327E9E0004158C6 /* ViewController.swift */,
-				FB5EDED72327E9E0004158C6 /* Main.storyboard */,
+				FB5EDEEA2327EE92004158C6 /* Controllers */,
+				FB5EDEEB2327EE9D004158C6 /* View */,
 				FB5EDEDD2327E9E2004158C6 /* Assets.xcassets */,
 				FB5EDEDF2327E9E2004158C6 /* LaunchScreen.storyboard */,
 				FB5EDEE22327E9E2004158C6 /* Info.plist */,
-				FB5EDEDA2327E9E0004158C6 /* Happy_Tasks.xcdatamodeld */,
+				FB5EDEEC2327EEB1004158C6 /* DataModel */,
 			);
 			path = "Happy Tasks";
+			sourceTree = "<group>";
+		};
+		FB5EDEEA2327EE92004158C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EDEE82327EE67004158C6 /* CategoriesTableViewController.swift */,
+				FB5EDED52327E9E0004158C6 /* TachesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FB5EDEEB2327EE9D004158C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EDED72327E9E0004158C6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB5EDEEC2327EEB1004158C6 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EDEDA2327E9E0004158C6 /* Happy_Tasks.xcdatamodeld */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5EDEDC2327E9E0004158C6 /* Happy_Tasks.xcdatamodeld in Sources */,
-				FB5EDED62327E9E0004158C6 /* ViewController.swift in Sources */,
+				FB5EDED62327E9E0004158C6 /* TachesViewController.swift in Sources */,
 				FB5EDED42327E9E0004158C6 /* AppDelegate.swift in Sources */,
+				FB5EDEE92327EE67004158C6 /* CategoriesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

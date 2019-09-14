@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Categorie" representedClassName=".Categorie" syncable="YES" codeGenerationType="class">
+        <attribute name="image" attributeType="String" syncable="YES"/>
+        <attribute name="nom" attributeType="String" syncable="YES"/>
+        <relationship name="tache" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tache" inverseName="categorieParent" inverseEntity="Tache" syncable="YES"/>
+    </entity>
+    <entity name="Tache" representedClassName=".Tache" syncable="YES" codeGenerationType="class">
+        <attribute name="done" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nom" attributeType="String" syncable="YES"/>
+        <relationship name="categorieParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categorie" inverseName="tache" inverseEntity="Categorie" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Categorie" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Tache" positionX="-42.2109375" positionY="238.75" width="128" height="88"/>
+    </elements>
+</model>
