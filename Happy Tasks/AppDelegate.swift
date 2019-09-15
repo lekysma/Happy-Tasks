@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //affiche le chemin d'acces des fichiers coreData
+        let CoreDataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last as! URL
+        print(CoreDataFilePath)
         return true
     }
 

@@ -20,6 +20,7 @@ class CategoriesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         listeCategories()
+        //chargementCategories()
 
         
     }
@@ -64,14 +65,15 @@ class CategoriesTableViewController: UITableViewController {
     //
     
     func chargementCategories() {
-        
-        
-        
+        let request : NSFetchRequest<Categorie> = Categorie.fetchRequest()
         do {
+            tableauCategorie = try context.fetch(request)
             
         } catch {
             print("Erreur dans le chargement des données sauvegardées\(error)")
         }
+        
+        tableView.reloadData()
     }
     
     // MARK: - Liste des categories
@@ -98,14 +100,14 @@ class CategoriesTableViewController: UITableViewController {
         tableauCategorie.append(quatriemeCategorie)
         
         // une fois cela fait, on enregistre le contexte
-        do {
-            try context.save()
-            
-        } catch {
-            print("Impossible de sauvegarder les données dans le contexte\(error)")
-        }
-        
-        tableView.reloadData()
+//        do {
+//            try context.save()
+//
+//        } catch {
+//            print("Impossible de sauvegarder les données dans le contexte\(error)")
+//        }
+//
+//        tableView.reloadData()
         
     }
     

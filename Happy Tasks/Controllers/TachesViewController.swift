@@ -19,6 +19,8 @@ class TachesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // on appelle la fonction chargement des taches
+        chargementTaches()
     }
     
     // MARK: - Table view delegate
@@ -73,7 +75,13 @@ class TachesViewController: UITableViewController {
     }
     //Chargement
     func chargementTaches() {
-        
+        let request: NSFetchRequest<Tache> = Tache.fetchRequest()
+        do {
+            tableauTaches = try context.fetch(request)
+        } catch {
+            print("Impossible de charger les tâches\(error)")
+        }
+        tableView.reloadData()
     }
     
     // MARK: - Ajout d'une nouvelle tache
