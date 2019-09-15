@@ -49,7 +49,14 @@ class CategoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "versTaches", sender: self)
     }
-    
+    // quelques action avant que le segue ne soit effectué
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! TachesViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.categorieSelectionnee = tableauCategorie[indexPath.row]
+        }
+    }
     
     // MARK: - data manipulation methods
     

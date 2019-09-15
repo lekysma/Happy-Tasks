@@ -15,12 +15,17 @@ class TachesViewController: UITableViewController {
     var tableauTaches = [Tache]()
     // on cree le contexte
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //gere la relation entre la categorie cliquée et les taches affichees
+    var categorieSelectionnee : Categorie? {
+        didSet {
+            chargementTaches()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        // on appelle la fonction chargement des taches
-        chargementTaches()
     }
     
     // MARK: - Table view delegate
@@ -74,8 +79,17 @@ class TachesViewController: UITableViewController {
         
     }
     //Chargement
-    func chargementTaches() {
-        let request: NSFetchRequest<Tache> = Tache.fetchRequest()
+    func chargementTaches(avec request: NSFetchRequest<Tache> = Tache.fetchRequest(), predicate: NSPredicate? = nil) {
+        //gere le fait de charger uniquement les taches de la categorie selectionnee
+        let categoriePredicate = NSPredicate(format: "categorieParent.nom MATCHES %@", categorieSelectionnee!.nom!)
+        
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoriePredicate, additionalPredicate])
+        } else {
+            request.predicate = categoriePredicate
+        }
+        //gestion du chargement des donnees
+        
         do {
             tableauTaches = try context.fetch(request)
         } catch {
@@ -96,6 +110,8 @@ class TachesViewController: UITableViewController {
             let nouvelleTache = Tache(context: self.context)
             nouvelleTache.nom = textField.text
             nouvelleTache.done = false
+            //on lui affecte une categorie parent
+            nouvelleTache.categorieParent = self.categorieSelectionnee
             self.tableauTaches.append(nouvelleTache)
             
             // on sauvegarde
